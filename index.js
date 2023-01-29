@@ -1,3 +1,6 @@
+let computerScore = 0;
+let playerScore = 0;
+
 function getComputerChoice() {
     let computerSelection = Math.floor(3*Math.random());
     switch (computerSelection) {
@@ -15,7 +18,6 @@ function getComputerChoice() {
 }
 
 function playRound(computerSelection){
-    let score = 0;
     let playerSelection = prompt("Rock, Paper, Scissors?");
 
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
@@ -25,27 +27,27 @@ function playRound(computerSelection){
     }
     else if (computerSelection == "Rock" && playerSelection == "Scissors") {
         alert("You Lose! Rock beats Scissors.");
-        score -= 1;
+        computerScore++;
     }
     else if (computerSelection == "Paper" && playerSelection == "Rock") {
         alert("You Lose! Paper beats Rock.");
-        score -= 1;
+        computerScore++;
     }
     else if (computerSelection == "Scissors" && playerSelection == "Paper") {
         alert("You Lose! Scissors beats Paper.");
-        score -= 1;
+        computerScore++;
     }
     else if (computerSelection == "Rock" && playerSelection == "Paper") {
         alert("You Win! Paper beats Rock.");
-        score += 1;
+        playerScore++;
     }
     else if (computerSelection == "Paper" && playerSelection == "Scissors") {
         alert("You Win!! Scissors beats Paper.");
-        score += 1;
+        playerScore++;
     }
     else if (computerSelection == "Scissors" && playerSelection == "Rock") {
         alert("You Win! Rock beats Scissors.");
-        score += 1;
+        playerScore++;
     }
     else {
         alert("Please enter an appropiate choice for the game of Rock, Paper, Scissors.");
@@ -55,6 +57,16 @@ function playRound(computerSelection){
 function game() {
     for (let i = 0; i < 5; i++){
         playRound(getComputerChoice());
+        alert(`${playerScore} - ${computerScore}`);
+    }
+    if (playerScore == computerScore) {
+        alert("The match is a draw.");
+    }
+    else if (playerScore > computerScore) {
+        alert("You win the match!");
+    }
+    else if (computerScore > playerScore) {
+        alert("You lose the match, get good!");
     }
 }
 
