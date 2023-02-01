@@ -50,25 +50,24 @@ function playRound(computerSelection){
         playerScore++;
     }
     else {
-        alert("Please enter an appropiate choice for the game of Rock, Paper, Scissors.");
+        alert("Please enter an appropriate choice for the game of Rock, Paper, Scissors.");
     }
 }
 
 function game() {
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < Infinity; i++){
         playRound(getComputerChoice());
         alert(`${playerScore} - ${computerScore}`);
-    }
-    if (playerScore == computerScore) {
-        alert("The match is a draw.");
-    }
-    else if (playerScore > computerScore) {
+        if (playerScore == 5 || computerScore == 5){
+        break;
+    }}
+    if (playerScore > computerScore) {
         alert("You win the match!");
     }
     else if (computerScore > playerScore) {
         alert("You lose the match, get good!");
-    }
-}
+    }}
+
 
 game();
 
